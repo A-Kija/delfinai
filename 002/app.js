@@ -57,7 +57,7 @@ console.log(namas);
 
 let saugiklis = 100;
 
-mas = [2, 100, 8, 18];
+const mas = [2, 100, 8, 18];
 
 // const index = -1;
 let i = -1;
