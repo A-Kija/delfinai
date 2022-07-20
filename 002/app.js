@@ -1,3 +1,9 @@
+function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 [1, 5, 77].forEach(a => console.log(a));
 
 console.log('----------------');
@@ -66,3 +72,44 @@ console.log(i > mas.length - 1 ? -1 : i);
 
 
 // }
+
+const mas2 = [...Array(200)].map(_ => ['A', 'B', 'C', 'D'][rand(0, 3)]);
+
+
+const rez = { A: 0, B: 0, C: 0, D: 0 };
+
+mas2.forEach(l => rez[l]++);
+
+// console.log(mas2);
+// console.log(rez);
+
+
+const m1 = new Set();
+let sk = 0;
+
+while (m1.size < 100) {
+    sk++;
+    m1.add(rand(100, 999))
+}
+const mas10 = [...m1];
+m1.clear();
+while (m1.size < 100) {
+    sk++;
+    m1.add(rand(100, 999))
+}
+const mas20 = [...m1];
+
+
+
+
+
+console.log();
+
+// m1.add('gg');
+// m1.add('gg');
+// m1.add('gg2');
+// m1.add('gg3');
+// const o = { gg: 1 };
+// const b = {...o };
+// m1.add(o);
+// m1.add(b);
