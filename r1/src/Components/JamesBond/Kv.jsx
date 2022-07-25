@@ -1,4 +1,16 @@
-function Kv({c}) {
+import { useEffect } from "react";
+
+function Kv({c, i}) {
+
+
+
+
+    useEffect(()=> {
+        console.log('As gyvas', i);
+        return () => {
+            console.log('Numiro', i)
+        }
+    }, []);
 
     return(
         <div className="kv" style={{

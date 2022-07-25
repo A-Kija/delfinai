@@ -12,7 +12,7 @@ function App() {
                 <h1 onClick={() => setKv(k => [...k, randColor()])}>State</h1>
                 <div className="kv-bin">
                     {
-                        kv.map((c, i) => <Kv key={i} c={c}></Kv>)
+                        kv.map((c, i) => <Kv key={i} c={c} i={i}></Kv>)
                     }
                 </div>
             </header>
