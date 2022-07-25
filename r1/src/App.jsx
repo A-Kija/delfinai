@@ -3,7 +3,8 @@ import { useState } from "react";
 import randColor from './Functions/randColor';
 import Kv from './Components/JamesBond/Kv';
 import { useEffect } from 'react';
-import Count from './Components/JamesBond/Count';
+// import Count from './Components/JamesBond/Count';
+import ForeverYoung from './Components/JamesBond/ForeverYoung';
 function App() {
 
     const [kv, setKv] = useState([]);
@@ -34,7 +35,7 @@ function App() {
                         kv.map((c, i) => <Kv key={i} c={c} i={i}></Kv>)
                     }
                 </div>
-                <Count start={127}></Count>
+                <ForeverYoung/>
             </header>
         </div>
     );
