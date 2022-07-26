@@ -53,3 +53,11 @@
     background-color: #61dafb60;
     animation: App-logo-spin infinite 10s linear;
 }
+
+.radio input {
+    display: none;
+}
+
+.radio label {
+    cursor: pointer;
+}
