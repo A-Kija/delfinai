@@ -1,20 +1,53 @@
+import { useRef } from 'react';
+import { useState } from 'react';
 import './App.css';
-import Checkbox from './Components/008/Checkbox';
-import Radio from './Components/008/Radio';
-import Select from './Components/008/Select';
-import Text from './Components/008/Text';
+import M1 from './Components/009/M1';
+// import PirmasisKontekstas, {KitasKontekstas, DarVienasKontekstas} from './Contexts/PirmasisKontekstas';
+import PirmasisKontekstas, { DarVienasKontekstas } from './Contexts/PirmasisKontekstas';
 function App() {
 
+    const [count, setCount] = useState(0);
+
+    const blaSuper = useRef(5);
+
+    const good = useRef();
+
+    // let bla = 5;
+
+    const doCount = () => {
+
+        // const my = document.querySelector('button'); 
+
+        const my = good.current;
+
+        console.log(my);
+
+        setCount(c => c + 1);
+
+        // bla++;
+        // console.log(bla);
+
+        blaSuper.current++;
+        console.log(blaSuper.current);
+
+    }
+
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Form Controll</h1>
-                <Text></Text>
-                <Select></Select>
-                <Checkbox></Checkbox>
-                <Radio></Radio>
-            </header>
-        </div>
+        <DarVienasKontekstas.Provider value={{ dar: 10000 }}>
+            <PirmasisKontekstas.Provider value={{
+                pirmas: 'Valio',
+                spalva: 'pink'
+            }}>
+                <div className="App">
+                    <header className="App-header">
+                        <h1>useContext & useRef {count}</h1>
+                        <M1 kas="Penki"></M1>
+                        <button ref={good} onClick={doCount}>+1</button>
+
+                    </header>
+                </div>
+            </PirmasisKontekstas.Provider>
+        </DarVienasKontekstas.Provider>
     );
 }
 
