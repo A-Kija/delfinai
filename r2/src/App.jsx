@@ -3,7 +3,7 @@ import './App.scss';
 import Create from './Components/Create';
 import AnimalsContext from './Components/AnimalsContext';
 import { useEffect, useState } from 'react';
-import { create, destroy, read } from './Functions/localstorage';
+import { create, destroy, read, update } from './Functions/localstorage';
 import List from './Components/List';
 import Edit from './Components/Edit';
 
@@ -25,10 +25,11 @@ function App() {
   
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
+  const [editData, setEditData] = useState(null);
   const [animals, setAnimals] = useState(null);
 
   useEffect(() => {
-    setAnimals(read(keyLock));
+    setAnimals(read(keyLock).sort((a, b) => a.id - b.id));
   }, [lastUpdate]);
 
   useEffect(() => {
@@ -47,6 +48,14 @@ function App() {
     setLastUpdate(Date.now());
   }, [deleteData]);
 
+  useEffect(() => {
+    if (null === editData) {
+      return;
+    }
+    update(keyLock, editData, editData.id);
+    setLastUpdate(Date.now());
+  }, [editData]);
+
 
 
   return (
@@ -56,7 +65,8 @@ function App() {
       animals,
       setDeleteData,
       modalData,
-      setModalData
+      setModalData,
+      setEditData
     }}>
       <div className="container">
         <div className="row">
