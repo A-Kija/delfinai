@@ -5,6 +5,7 @@ import AnimalsContext from './Components/AnimalsContext';
 import { useEffect, useState } from 'react';
 import { create, destroy, read } from './Functions/localstorage';
 import List from './Components/List';
+import Edit from './Components/Edit';
 
 const keyLock = 'myFantasticZoo';
 const animalsTypes = [
@@ -20,6 +21,8 @@ function App() {
 
   const [lastUpdate, setLastUpdate] = useState(Date.now())
 
+  const [modalData, setModalData] = useState(null);
+  
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
   const [animals, setAnimals] = useState(null);
@@ -51,7 +54,9 @@ function App() {
       animalsTypes,
       setCreateData,
       animals,
-      setDeleteData
+      setDeleteData,
+      modalData,
+      setModalData
     }}>
       <div className="container">
         <div className="row">
@@ -59,10 +64,11 @@ function App() {
             <Create />
           </div>
           <div className="col-8">
-            <List/>
+            <List />
           </div>
         </div>
       </div>
+      <Edit/>
     </AnimalsContext.Provider>
   );
 }
