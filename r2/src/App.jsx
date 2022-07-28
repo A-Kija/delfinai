@@ -2,7 +2,11 @@ import './bootstrap.css';
 import './App.scss';
 import Create from './Components/Create';
 import AnimalsContext from './Components/AnimalsContext';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { create } from './Functions/localstorage';
 
+const keyLock = 'myFantasticZoo';
 const animalsTypes = [
   {id: 1, type: 'Antis'},
   {id: 2, type: 'Avis'},
@@ -13,9 +17,24 @@ const animalsTypes = [
 ];
 
 function App() {
+
+
+  const [createData, setCreateData] = useState(null);
+
+
+  useEffect(() => {
+    if (null === createData) {
+      return;
+    }
+    create(keyLock, createData);
+  },[createData]);
+
+
+
   return (
     <AnimalsContext.Provider value={{
-      animalsTypes
+      animalsTypes,
+      setCreateData
     }}>
     <div className="container">
       <div className="row">
