@@ -1,10 +1,30 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import AnimalsContext from "./AnimalsContext";
 
 function Edit() {
 
-    const {modalData, setModalData} = useContext(AnimalsContext);
+    const { animalsTypes, setCreateData } = useContext(AnimalsContext);
+    const [type, setType] = useState(5);
+    const [weight, setWeight] = useState('');
+    const { modalData, setModalData } = useContext(AnimalsContext);
 
+    const buttonClick = () => {
+        setCreateData({ type, weight: parseFloat(weight) });
+        setType(5);
+        setWeight('');
+    }
+
+    useEffect(() => {
+        if (null === modalData) {
+            return;
+        }
+        setWeight(modalData.weight);
+        setType(modalData.type)
+    }, [modalData])
+
+    
     if (null === modalData) {
         return null;
     }
@@ -20,7 +40,23 @@ function Edit() {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <p>Modal body text goes here.</p>
+                        <div className="card m-4">
+                            <div className="card-body">
+                                <div className="form-group">
+                                    <label>Our types of animals</label>
+                                    <select className="form-control" value={type} onChange={e => setType(e.target.value)}>
+                                        {
+                                            animalsTypes.map(a => <option key={a.id} value={a.id}>{a.type}</option>)
+                                        }
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>How much is the {animalsTypes.find(a => a.id == type).type}?</label>
+                                    <input type="text" className="form-control" value={weight} onChange={e => setWeight(e.target.value)} />
+                                    <small className="form-text text-muted">Please, enter your animal weight in kg here.</small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="modal-footer">
                         <button type="button" onClick={() => setModalData(null)} className="btn btn-secondary">Close</button>
