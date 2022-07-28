@@ -13,7 +13,6 @@ function Edit() {
     const buttonClick = () => {
         setEditData({ type, weight: parseFloat(weight), id: modalData.id });
         setModalData(null);
-
     }
 
     useEffect(() => {
