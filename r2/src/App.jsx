@@ -18,19 +18,21 @@ const animalsTypes = [
 
 function App() {
 
+  const [lastUpdate, setLastUpdate] = useState(Date.now())
 
   const [createData, setCreateData] = useState(null);
   const [animals, setAnimals] = useState(null);
 
   useEffect(() => {
     setAnimals(read(keyLock));
-  }, [])
+  }, [lastUpdate]);
 
   useEffect(() => {
     if (null === createData) {
       return;
     }
     create(keyLock, createData);
+    setLastUpdate(Date.now());
   }, [createData]);
 
 
