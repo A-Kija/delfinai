@@ -101,4 +101,16 @@ switch($p) {
     case 'XL': echo '<br>Tikrinam XL';
 }
 
+echo '<br>';
+
+// echo sprintf('%02d:%02d:%02d', 4, 32, 7);
+echo '<pre>';
+$s = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
+
+echo $s;
+
+echo '<br>';
+preg_match('/[1-9]/', $s, $m);
+// echo '<pre>';
+print_r($m[0]);
 
