@@ -1,53 +1,30 @@
-import { useRef } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.css';
-import M1 from './Components/009/M1';
-// import PirmasisKontekstas, {KitasKontekstas, DarVienasKontekstas} from './Contexts/PirmasisKontekstas';
-import PirmasisKontekstas, { DarVienasKontekstas } from './Contexts/PirmasisKontekstas';
+import axios from 'axios';
+
 function App() {
 
-    const [count, setCount] = useState(0);
 
-    const blaSuper = useRef(5);
+    const [users, setUsers] = useState([]);
 
-    const good = useRef();
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res => setUsers(res.data));
+    }, []);
 
-    // let bla = 5;
-
-    const doCount = () => {
-
-        // const my = document.querySelector('button'); 
-
-        const my = good.current;
-
-        console.log(my);
-
-        setCount(c => c + 1);
-
-        // bla++;
-        // console.log(bla);
-
-        blaSuper.current++;
-        console.log(blaSuper.current);
-
-    }
 
     return (
-        <DarVienasKontekstas.Provider value={{ dar: 10000 }}>
-            <PirmasisKontekstas.Provider value={{
-                pirmas: 'Valio',
-                spalva: 'pink'
-            }}>
-                <div className="App">
-                    <header className="App-header">
-                        <h1>useContext & useRef {count}</h1>
-                        <M1 kas="Penki"></M1>
-                        <button ref={good} onClick={doCount}>+1</button>
-
-                    </header>
-                </div>
-            </PirmasisKontekstas.Provider>
-        </DarVienasKontekstas.Provider>
+        <div className="App">
+            <header className="App-header">
+                <h1>API</h1>
+                <ul>
+                    {
+                        users.map(u => <li key={u.id}>{u.name} <span style={{color:'crimson'}}>{u.address.city}</span></li>)
+                    }
+                </ul>
+            </header>
+        </div>
     );
 }
 
