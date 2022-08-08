@@ -33,23 +33,73 @@ foreach(range(1, 200) as $_) {
 
 // print_r($mas2);
 
-function fun($v = 'bevardi') {
-    return "Labukas $v, ka tu? \n";
+// function fun(string $s = 'bevardi', array|string $v = 'bla bla bla') : string {
+//     return "$s $v, ka tu? \n";
+// }
+
+// $ss = 'Labukas';
+
+// $kibiras = fun($ss, 'Jonai');
+
+// echo ($kibiras);
+
+
+// $kibiras = fun('Sveikute', 'Teta Zose');
+
+// echo ($kibiras);
+
+
+// $kibiras = fun('Hello');
+
+// echo ($kibiras);
+
+
+$moreFun = function($b) {
+
+    $notFun = function($a) {
+        print_r('Labukas! '.$a);
+    };
+
+    return $notFun($b);
+
+};
+
+// $moreFun('dddccc');
+
+
+
+
+
+
+
+function doPrint($fun, $ka) {
+    return $fun($ka);
 }
 
 
-$kibiras = fun('Jonai');
+$burbulas = ' Baravykas';
 
-echo ($kibiras);
+// doPrint(
+//     function($str) use ($burbulas) {
+//         echo $str . $burbulas;
+//     }
+//     ,
+//     'GRYBAS33'
+// );
 
 
-$kibiras = fun('Teta Zose');
+$c = doPrint(
+    fn($str) => $str . $burbulas
+    ,
+    'GRYBAS101'
+);
 
-echo ($kibiras);
+echo $c;
 
 
-$kibiras = fun();
 
-echo ($kibiras);
+
+
+
 
 
