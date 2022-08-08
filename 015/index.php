@@ -79,25 +79,31 @@ function doPrint($fun, $ka) {
 
 $burbulas = ' Baravykas';
 
-// doPrint(
-//     function($str) use ($burbulas) {
-//         echo $str . $burbulas;
-//     }
-//     ,
-//     'GRYBAS33'
-// );
-
-
-$c = doPrint(
-    fn($str) => $str . $burbulas
+doPrint(
+    function($str) use ($burbulas) {
+        echo $str . $burbulas;
+    }
     ,
-    'GRYBAS101'
+    'GRYBAS33'
 );
 
-echo $c;
 
 
+// $c = doPrint(
+//     fn($str) => $str . $burbulas
+//     ,
+//     'GRYBAS101'
+// );
 
+// echo $c;
+
+$mas = [44, 5, 9, 11, 0, 54, 7];
+
+
+usort($mas, fn($a, $b) => 2 - rand(1, 3));
+
+
+print_r($mas);
 
 
 
