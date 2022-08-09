@@ -92,9 +92,9 @@ $three = function() use (&$result) {
  
 $result++;
  
-$one();    
-$two();    
-$three(); 
+// $one();    
+// $two();    
+// $three(); 
 
 $func = function ($limit = NULL) use (&$func) { 
     static $current = 10; 
@@ -113,7 +113,20 @@ $func = function ($limit = NULL) use (&$func) {
     $func(); 
  }; 
   //  Kviečiam funkciją
- $func();
+//  $func();
 
- 
+ $str = md5(time());
+ echo "\n\n\n\n";
+ echo $str;
+
+ $n = preg_replace_callback('/(([0-9]{1})([0-9]{1}))/', function($m){
+    echo "\n";
+    print_r($m);
+    echo "\n";
+    return '<h1 style="display: inline">'.$m[0].'</h1>';
+ }, $str);
+
+ echo "\n\n";
+ echo $n;
+
  
