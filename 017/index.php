@@ -1,16 +1,17 @@
 <?php
 
 $cat = 'Murka';
+if (!file_exists(__DIR__ . '/data.json')) {
+    file_put_contents(__DIR__ . '/data.json', json_encode([]));
+}
 
 // POST scenarijus
 if ('POST' == $_SERVER['REQUEST_METHOD']) {
     $ra = $_POST['rapolas'] ?? 'Nieko nera';
 
-    if (!file_exists(__DIR__ . '/data.json')) {
-        file_put_contents(__DIR__ . '/data.json', json_encode([]));
-    }
 
-    $data = json_decode(file_get_contents(__DIR__ . '/data.json', 1));
+
+    $data = json_decode(file_get_contents(__DIR__ . '/data.json'), 1);
 
     $data[] = $ra;
 
@@ -48,8 +49,11 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 
     </form>
 
-
-
+        <ul>
+        <?php foreach(json_decode(file_get_contents(__DIR__ . '/data.json'), 1) as $val) : ?>
+            <li><?= $val ?></li>
+        <?php endforeach ?>
+        <ul>
 </body>
 
 </html>
