@@ -1,5 +1,11 @@
 <?php
 
+// echo '<pre>';
+
+// print_r($_POST);
+
+// die;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $checked = count($_POST['c'] ?? []);
     header('Location: http://localhost/delfinai/018/09.php?all='.$checked );
@@ -32,7 +38,7 @@ $count = rand(3, 10);
         <form action="http://localhost/delfinai/018/09.php" method="post">
 
             <?php foreach(range(1, $count) as $number): ?>
-            <input type="checkbox" name="c[]" /><?= $aj[$number-1] ?>
+            <input type="checkbox" name="c[]" value="<?= $aj[$number-1] ?>" /><?= $aj[$number-1] ?>
             <?php endforeach ?>
 
             <button type="submit">GO</button>
