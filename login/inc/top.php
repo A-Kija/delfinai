@@ -8,3 +8,5 @@
     <title>Login</title>
 </head>
 <body>
+<?php
+view('msg');

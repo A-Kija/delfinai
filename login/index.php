@@ -71,21 +71,29 @@ function doLogin()
             if ($user['pass'] == md5($_POST['psw'])) {
                 $_SESSION['login'] = 1;
                 $_SESSION['user'] = $user;
+                makeMsg('skyblue', 'Labai Gerai');
                 redirect('client');
             }
         }
     }
+    makeMsg('crimson', 'Viskas labai blogai');
     redirect('login');
 }
 
 function doLogout()
 {
     unset($_SESSION['login'], $_SESSION['user']);
+    makeMsg('green', 'Ate');
     redirect('login');
 }
 
 function isLogged() 
 {
     return (isset($_SESSION['login']) && $_SESSION['login'] == 1);
+}
+
+function makeMsg($type, $text)
+{
+    $_SESSION['msg'] = ['type' => $type, 'text' => $text ];
 }
 
