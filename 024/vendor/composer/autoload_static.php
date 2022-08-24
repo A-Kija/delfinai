@@ -7,17 +7,29 @@ namespace Composer\Autoload;
 class ComposerStaticInit6db2db6abd64bd4a1e59b2bf548bdb6a
 {
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Petro\\' => 6,
+        ),
         'A' => 
         array (
-            'Arvyd\\024\\' => 10,
+            'Antano\\Belekas\\' => 15,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Arvyd\\024\\' => 
+        'Petro\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/01',
         ),
+        'Antano\\Belekas\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/02',
+        ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/01',
     );
 
     public static $classMap = array (
@@ -29,6 +41,7 @@ class ComposerStaticInit6db2db6abd64bd4a1e59b2bf548bdb6a
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit6db2db6abd64bd4a1e59b2bf548bdb6a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6db2db6abd64bd4a1e59b2bf548bdb6a::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit6db2db6abd64bd4a1e59b2bf548bdb6a::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInit6db2db6abd64bd4a1e59b2bf548bdb6a::$classMap;
 
         }, null, ClassLoader::class);
