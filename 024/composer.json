@@ -1,0 +1,16 @@
+{
+    "name": "arvyd/024",
+    "description": "Bla bla bla",
+    "autoload": {
+        "psr-4": {
+            "Petro\\": "01/",
+            "Antano\\Belekas\\": "02/",
+            "\\": "01/"
+        }
+    },
+    "authors": [{
+        "name": "A-Kija",
+        "email": "arvydas.kijakauskas@gmail.com"
+    }],
+    "require": {}
+}
