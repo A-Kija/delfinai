@@ -15,9 +15,6 @@ class App {
 
 
 
-
-
-
     static public function router()
     {
                 
