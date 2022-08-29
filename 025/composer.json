@@ -1,0 +1,13 @@
+{
+    "name": "arvyd/025",
+    "autoload": {
+        "psr-4": {
+            "": ""
+        }
+    },
+    "authors": [{
+        "name": "A-Kija",
+        "email": "arvydas.kijakauskas@gmail.com"
+    }],
+    "require": {}
+}
