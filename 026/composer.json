@@ -1,0 +1,15 @@
+{
+    "name": "arvyd/026",
+    "description": "Nice and Fancy ZOO",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "": ""
+        }
+    },
+    "authors": [{
+        "name": "A-Kija",
+        "email": "arvydas.kijakauskas@gmail.com"
+    }],
+    "require": {}
+}
