@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\App;
+use App\DB\Json;
 
 class HomeController {
 
@@ -10,6 +11,8 @@ class HomeController {
     {
         $title = 'HOME';
         $welcome = 'Hello from fancy zoo!';
+
+        new Json;
 
         return App::view('home', [
             'title' => $title,
