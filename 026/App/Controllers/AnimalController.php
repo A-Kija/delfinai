@@ -14,5 +14,15 @@ class AnimalController {
             'title' => 'New Animal'
         ]);
     }
+
+    public function store()
+    {
+        Json::connect()->create([
+            'type' => $_POST['type'],
+            'weight' => $_POST['weight'],
+            'tail' => isset($_POST['tail']) ? 1 : 0 
+        ]);
+        return App::redirect('');
+    }
     
 }
