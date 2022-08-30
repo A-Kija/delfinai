@@ -33,9 +33,7 @@ class App {
 
         
         if ($method == 'GET' && count($url) == 2 && $url[0] == 'animals' && $url[1] == 'create') {
-
             return((new A)->create());
-            
         }
 
 
