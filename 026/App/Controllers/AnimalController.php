@@ -53,5 +53,11 @@ class AnimalController {
         return App::redirect('animals');
     }
 
+    public function delete(int $id)
+    {
+        Json::connect()->delete($id);
+        return App::redirect('animals');
+    }
+
 
 }
