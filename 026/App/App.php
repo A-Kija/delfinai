@@ -66,6 +66,10 @@ class App {
             return((new L)->doLogin());
         }
 
+        if ($method == 'POST' && count($url) == 1 && $url[0] == 'logout') {
+            return((new L)->logout());
+        }
+
     }
 
     static public function view($name, $data = [])

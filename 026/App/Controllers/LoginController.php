@@ -16,6 +16,12 @@ class LoginController {
         ]);
     }
 
+    public function logout()
+    {
+        unset($_SESSION['login'], $_SESSION['user']);
+        return App::redirect('');
+    }
+
     public function doLogin()
     {
 
