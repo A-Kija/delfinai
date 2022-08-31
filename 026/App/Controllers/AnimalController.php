@@ -43,4 +43,15 @@ class AnimalController {
         ]);
     }
     
+    public function update(int $id)
+    {
+        Json::connect()->update($id, [
+            'type' => $_POST['type'],
+            'weight' => $_POST['weight'],
+            'tail' => isset($_POST['tail']) ? 1 : 0 
+        ]);
+        return App::redirect('animals');
+    }
+
+
 }
