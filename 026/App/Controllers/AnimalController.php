@@ -34,5 +34,13 @@ class AnimalController {
             'animals' => Json::connect()->showAll()
         ]);
     }
+
+    public function edit(int $id)
+    {
+        return App::view('animal_edit', [
+            'title' => 'Animal Edit',
+            'animal' => Json::connect()->show($id)
+        ]);
+    }
     
 }
