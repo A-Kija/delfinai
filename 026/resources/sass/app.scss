@@ -46,4 +46,25 @@ h1 {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    width: 100%;
+    .name {
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+.nav-link {
+    padding: 16px 10px;
+    max-width: 150px;
+}
+
+.nav-link.big {
+    width: 100%;
+    max-width: 100%;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

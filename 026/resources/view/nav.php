@@ -12,9 +12,9 @@
                     <a class="nav-link" href="<?= URL ?>animals/create">New Animal</a>
                 </li>
                 <?php if(App\Middlewares\Auth::isLoged()) : ?>
-                <li class="nav-item">
+                <li class="nav-item big">
                     <div class="user-nav">
-                        <div><?= $_SESSION['user']['name'] ?></div>
+                        <div class="name"><?= $_SESSION['user']['name'] ?></div>
                         <form action="<?= URL ?>logout" method="post">
                             <button type="submit" class="btn btn-outline-danger m-2">Logout</button>
                         </form>
