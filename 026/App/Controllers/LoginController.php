@@ -20,6 +20,7 @@ class LoginController {
     public function logout()
     {
         unset($_SESSION['login'], $_SESSION['user']);
+        M::makeMsg('aquamarine', 'Bye. Dont come back.');
         return App::redirect('');
     }
 
@@ -38,6 +39,9 @@ class LoginController {
                 }
             }
         }
+        M::makeMsg('crimson', 'You are slow.');
+        M::makeMsg('black', 'You are very slow.');
+        M::makeMsg('crimson', 'But you can try one more time.');
         return App::redirect('login');
 
     }

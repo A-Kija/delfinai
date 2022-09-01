@@ -10978,6 +10978,7 @@ h1 span, .h1 span {
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex-direction: column-reverse;
 }
 .msg-bin .msg {
   margin: 20px;

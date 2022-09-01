@@ -74,6 +74,7 @@ h1 {
     justify-content: center;
     align-items: center;
     width: 100%;
+    flex-direction: column-reverse;
     .msg {
         margin: 20px;
         padding: 20px;
