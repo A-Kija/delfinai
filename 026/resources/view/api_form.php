@@ -21,6 +21,20 @@ App\App::view('top', ['title' => $title]);
                         </div>
                         <button type="submit" class="btn btn-primary mt-5">Go</button>
                     </form>
+                    <?php if($result) : ?>
+                    <div class="result">
+                        From: 
+                        <a href="<?= $result['from_link'] ?>" target="_blank">
+                            <?= $result['from'] ?>
+                        </a>
+                        To: 
+                        <a href="<?= $result['to_link'] ?>" target="_blank">
+                            <?= $result['to'] ?>
+                        </a>
+                        is <?= $result['d'] ?>KM
+                        
+                    </div>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
