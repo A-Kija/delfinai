@@ -88,6 +88,9 @@ class App {
         if ($method == 'GET' && count($url) == 2 && $url[0] == 'react' && $url[1] == 'list') {
             return (new R)->list();
         }
+        if ($method == 'POST' && count($url) == 2 && $url[0] == 'react' && $url[1] == 'list') {
+            return (new R)->store();
+        }
 
     }
 
