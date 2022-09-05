@@ -85,6 +85,13 @@ class App {
 
         // REACT
 
+        if ($method == 'OPTIONS') {
+            file_put_contents('abc', 'labas');
+            header('Access-Control-Allow-Origin: *');
+            header('Access-Control-Allow-Methods: GET, POST');
+            header('Access-Control-Allow-Headers: Content-Type');
+        }
+
         if ($method == 'GET' && count($url) == 2 && $url[0] == 'react' && $url[1] == 'list') {
             return (new R)->list();
         }
