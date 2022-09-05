@@ -27,4 +27,10 @@ class ReactController {
         return App::json(['msg' => 'Hello Africa']);
     }
 
+    public function delete(int $id)
+    {
+        Json::connect()->delete($id);
+        return App::json(['msg' => 'Hello Africa']);
+    }
+
 }

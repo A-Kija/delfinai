@@ -1,4 +1,8 @@
-function List({list}) {
+function List({list, setDeleteData}) {
+
+    const destroy = id => {
+        setDeleteData({id});
+    }
 
     if (null === list) {
         return <h2>Loading...</h2>
@@ -31,7 +35,7 @@ function List({list}) {
                                                 </div>
                                                 <div className="line__buttons">
                                                     <button type="button" className="btn btn-outline-success m-2">Edit</button>
-                                                    <button type="submit" className="btn btn-outline-danger m-2">Delete</button>
+                                                    <button type="submit" className="btn btn-outline-danger m-2" onClick={() => destroy(a.id)}>Delete</button>
                                                 </div>
                                             </div>
                                         </li>
