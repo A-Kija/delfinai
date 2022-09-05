@@ -6,8 +6,6 @@ import List from './Components/List';
 import axios from 'axios';
 
 
-
-
 function App() {
 
   const [animals, setAnimals] = useState(null);

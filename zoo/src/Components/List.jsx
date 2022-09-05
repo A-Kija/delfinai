@@ -16,7 +16,7 @@ function List({list}) {
                             <ul className="list-group">
                                 {
                                     list.map(a => (
-                                        <li className="list-group-item">
+                                        <li className="list-group-item" key={a.id}>
                                             <div className="line">
                                                 <div className="line__content">
                                                     <div className="line__content__type">
