@@ -10,11 +10,12 @@ function App() {
 
   const [animals, setAnimals] = useState(null);
   const [createData, setCreateData] = useState(null);
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   useEffect(() => {
     axios.get('http://animals.zoo/react/list')
     .then(res => setAnimals(res.data));
-  }, []);
+  }, [lastUpdate]);
 
 
   useEffect(() => {
@@ -22,7 +23,10 @@ function App() {
       return;
     }
     axios.post('http://animals.zoo/react/list', createData)
-    .then(res => console.log(res))
+    .then(res => {
+      setLastUpdate(Date.now());
+      console.log(res)
+    })
 
   }, [createData]);
 
