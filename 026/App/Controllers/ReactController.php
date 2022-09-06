@@ -43,7 +43,7 @@ class ReactController {
             'weight' => $rawData['weight'],
             'tail' => $rawData['tail']
         ]);
-        return App::json(['msg' => 'Hello Africa']);
+        return App::json([]);
     }
 
 }
