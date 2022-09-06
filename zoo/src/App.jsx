@@ -13,6 +13,7 @@ function App() {
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
   const [modalData, setModalData] = useState(null);
+  const [editData, setEditData] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   useEffect(() => {
@@ -41,6 +42,15 @@ function App() {
     })
   }, [deleteData]);
 
+  useEffect(() => {
+    if (null === editData) {
+      return;
+    }
+    axios.put('http://animals.zoo/react/list/' + editData.id, editData)
+    .then(res => {
+      setLastUpdate(Date.now());
+    })
+  }, [editData]);
 
 
   return (
@@ -55,7 +65,7 @@ function App() {
         </div>
       </div>
     </div>
-    <Edit setModalData={setModalData} modalData={modalData}/>
+    <Edit setModalData={setModalData} modalData={modalData} setEditData={setEditData}/>
     </>
   );
 }
