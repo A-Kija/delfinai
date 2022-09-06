@@ -89,3 +89,13 @@
         font-size: 28px;
     }
 }
+
+.msg-bin {
+    position: fixed;
+    width: 100%;
+    top: 15px;
+    .msg {
+        color: gray;
+        background-color: #87ceebaa;
+    }
+}

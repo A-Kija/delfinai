@@ -5,6 +5,7 @@ import Create from './Components/Create';
 import List from './Components/List';
 import axios from 'axios';
 import Edit from './Components/Edit';
+import Msg from './Components/Msg';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [modalData, setModalData] = useState(null);
   const [editData, setEditData] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
+  const [msg, setMsg] = useState('Labas');
 
   useEffect(() => {
     axios.get('http://animals.zoo/react/list')
@@ -66,6 +68,7 @@ function App() {
       </div>
     </div>
     <Edit setModalData={setModalData} modalData={modalData} setEditData={setEditData}/>
+    <Msg msg={msg} />
     </>
   );
 }
