@@ -24,7 +24,7 @@ class ReactController {
             'weight' => $rawData['weight'],
             'tail' => $rawData['tail']
         ]);
-        return App::json(['msg' => 'Hello Africa']);
+        return App::json(['msg' => 'Labai sėkmingai gyvuliukas '.$rawData['type'].' patalpintas.']);
     }
 
     public function delete(int $id)
