@@ -20,17 +20,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // SET column1 = value1, column2 = value2, ...
 // WHERE condition;
 
-$sql = "
-    UPDATE trees
-    SET type = ?, height = ?, title = ?
-    WHERE id = ?
-";
-
+    $sql = "
+        UPDATE trees
+        SET type = :t, height = :h, title = :title
+        WHERE id = :id
+    ";
 
     $stmt = $pdo->prepare($sql);
 
-    $stmt->execute([$_POST['type'], $_POST['height'], $_POST['title'], $_POST['id']]);
-
+    $stmt->execute([
+        'title' => $_POST['title'], 
+        't' => $_POST['type'], 
+        'id' => $_POST['id'],
+        'h' => $_POST['height']
+    ]);
 
     header('Location: http://localhost/delfinai/032/');
     die;
