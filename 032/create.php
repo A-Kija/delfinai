@@ -22,10 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "
         INSERT INTO `trees`
         (`type`, `height`, `title`)
-        VALUES (".$_POST['type'].", ".$_POST['height'].", '".$_POST['title']."')
+        VALUES (?, ?, ?)
     ";
 
-    $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute([$_POST['type'], $_POST['height'], $_POST['title']]);
+
 
     header('Location: http://localhost/delfinai/032/');
     die;

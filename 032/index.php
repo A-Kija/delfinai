@@ -21,9 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = "
         DELETE FROM trees
-        WHERE id = " . $_POST['id'];
-
-        $pdo->query($sql);
+        WHERE id = ?
+        ";
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$_POST['id']]);
 
         header('Location: http://localhost/delfinai/032/');
         die;
