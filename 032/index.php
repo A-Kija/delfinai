@@ -15,6 +15,20 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // DELETE FROM table_name WHERE condition;
+
+    $sql = "
+        DELETE FROM trees
+        WHERE id = " . $_POST['id'];
+
+        $pdo->query($sql);
+
+        header('Location: http://localhost/delfinai/032/');
+        die;
+}
+
 
 
 // SELECT column1, column2, ...
@@ -46,5 +60,10 @@ $data = $stmt->fetchAll();
 <?php endforeach ?>
 
 </ul>
+
+<form action="" method="post">
+    ID: <input type="text" name="id"></br></br>
+    <button type="submit">Cut</button>
+</form>
 
 
