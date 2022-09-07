@@ -24,7 +24,9 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 $sql = "
     SELECT id, type, height, title
     FROM trees
-    
+    WHERE type <> 1
+    ORDER BY type DESC, title
+    LIMIT 2, 2
 ";
 
 $stmt = $pdo->query($sql);
