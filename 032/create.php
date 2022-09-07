@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         VALUES (".$_POST['type'].", ".$_POST['height'].", '".$_POST['title']."')
     ";
 
+    $pdo->query($sql);
+
     header('Location: http://localhost/delfinai/032/');
     die;
 }
