@@ -2,20 +2,18 @@
 
 @section('fun')
 
+    @include('kitkas.bu')
+
     @if($abc == 'keturi')
-
     <h1>Labai gerai</h1>
-
     @else 
-
     <h1>Nu nelabai gerai</h1>
-
     @endif
-
-
-    @foreach($mas as $value)
+    @forelse($mas as $value)
         <h2>{{$value}}</h2>
-    @endforeach
+    @empty
+        <h2>Nieko ne</h2>
+    @endforelse
 
 @endsection
 
