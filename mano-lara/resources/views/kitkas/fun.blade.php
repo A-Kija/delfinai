@@ -1,14 +1,24 @@
-@if($abc == 'keturi')
+@extends('home')
 
-<h1>Labai gerai</h1>
+@section('fun')
 
-@else 
+    @if($abc == 'keturi')
 
-<h1>Nu nelabai gerai</h1>
+    <h1>Labai gerai</h1>
 
-@endif
+    @else 
+
+    <h1>Nu nelabai gerai</h1>
+
+    @endif
 
 
-@foreach($mas as $value)
-    <h2>{{$value}}</h2>
-@endforeach
+    @foreach($mas as $value)
+        <h2>{{$value}}</h2>
+    @endforeach
+
+@endsection
+
+@section('title')
+Super Fun
+@endsection
