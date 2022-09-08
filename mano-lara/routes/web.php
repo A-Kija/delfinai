@@ -23,4 +23,4 @@ Route::get('/eziukas', fn() => '<h1>EŽIUKAS</h1>');
 Route::get('/bebriukas/super', function() { return '<h1>NE EŽIUKAS</h1>';}); 
 
 
-Route::get('/fun/{kiek}/{abc}', [Nice::class, 'fun']);
+Route::get('/fun/{kiek}/{abc?}', [Nice::class, 'fun']);
