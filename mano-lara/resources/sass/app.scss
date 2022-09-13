@@ -16,9 +16,18 @@
         }
     }
     .buttons {
+        display: flex;
+        align-items: center;
         button,
+        form,
         a {
             margin: 5px 10px;
+            height: 38px;
+            display: block;
+        }
+        form {
+            display: flex;
+            align-items: center;
         }
     }
 }
