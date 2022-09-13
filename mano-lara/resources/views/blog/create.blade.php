@@ -12,11 +12,11 @@
                     <form action="{{route('store')}}" method="post">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Title</span>
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" value="{{old('title')}}">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text">Post</span>
-                        <textarea class="form-control" name="post"></textarea>
+                        <textarea class="form-control" name="post">{{old('post')}}</textarea>
                     </div>
                     @csrf
                     <button type="submit" class="btn btn-secondary mt-4">Create</button>

@@ -12,11 +12,11 @@
                     <form action="{{route('edit', $blog)}}" method="post">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Title</span>
-                        <input type="text" name="title" class="form-control" value={{$blog->title}}>
+                        <input type="text" name="title" class="form-control" value={{old('title', $blog->title)}}>
                     </div>
                     <div class="input-group">
                         <span class="input-group-text">Post</span>
-                        <textarea class="form-control" name="post">{{$blog->post}}</textarea>
+                        <textarea class="form-control" name="post">{{old('post', $blog->post)}}</textarea>
                     </div>
                     @csrf
                     @method('put')

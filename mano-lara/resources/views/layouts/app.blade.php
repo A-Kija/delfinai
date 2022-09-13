@@ -85,6 +85,21 @@
         </nav>
 
         <main class="py-4">
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+            @if(Session::has('success_msg'))
+            <h2 class="alert alert-success">{{ Session::get('success_msg') }}</h2>
+            @endif
+
             @yield('content')
         </main>
     </div>

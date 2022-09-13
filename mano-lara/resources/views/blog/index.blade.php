@@ -7,6 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Posts</h2>
+                    @foreach($c as $letter)
+                        <h3>{{$letter}}
+                    @endforeach
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
