@@ -54,7 +54,9 @@ class MechanicController extends Controller
      */
     public function show(Mechanic $mechanic)
     {
-        //
+        return view('mechanic.show', [
+            'mechanic' => $mechanic
+        ]);
     }
 
     /**
