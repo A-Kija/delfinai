@@ -67,7 +67,9 @@ class MechanicController extends Controller
      */
     public function edit(Mechanic $mechanic)
     {
-        //
+        return view('mechanic.edit', [
+            'mechanic' => $mechanic
+        ]);
     }
 
     /**
@@ -79,7 +81,10 @@ class MechanicController extends Controller
      */
     public function update(Request $request, Mechanic $mechanic)
     {
-        //
+        $mechanic->name = $request->name;
+        $mechanic->surname = $request->surname;
+        $mechanic->save();
+        return redirect()->route('m_index');
     }
 
     /**
@@ -90,6 +95,8 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
-        //
+        // Mes dar ateisim atgal
+        $mechanic->delete();
+        return redirect()->route('m_index');
     }
 }
