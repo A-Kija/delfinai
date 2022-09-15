@@ -114,6 +114,18 @@
     }
 }
 
+.mechanic {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    h5 {
+        margin: 10px;
+        font-size: 40px;
+        color: crimson;
+    }
+}
+
 textarea.form-control {
     min-height: 200px;
 }
