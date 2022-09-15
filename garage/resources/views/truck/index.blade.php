@@ -16,14 +16,19 @@
                                 <div class="content">
                                     <h2><span>plate: </span>{{$truck->plate}}</h2>
                                     <h4><span>maker: </span>{{$truck->maker}}</h4>
+                                    <h5>
+                                        <span>mechanic: </span>
+                                        <a href="{{route('m_show', $truck->getMechanic->id)}}">
+                                            {{$truck->getMechanic->name}} {{$truck->getMechanic->surname}}
+                                        </a></h5>
                                 </div>
                                 <div class="buttons">
                                     <a href="{{route('t_show', $truck)}}" class="btn btn-info">Show</a>
                                     <a href="{{route('t_edit', $truck)}}" class="btn btn-success">Edit</a>
                                     <form action="{{route('t_delete', $truck)}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </div>
                             </div>
