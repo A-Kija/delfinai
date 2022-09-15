@@ -95,8 +95,11 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
-        // Mes dar ateisim atgal
+        if ($mechanic->getTrucks()->count()) {
+            return redirect()->back()->with('info_msg', 'Oh no, you can not delete this one.');
+        }
         $mechanic->delete();
         return redirect()->route('m_index');
+
     }
 }
