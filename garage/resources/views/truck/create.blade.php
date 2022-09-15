@@ -6,7 +6,7 @@
         <div class="col-5">
             <div class="card">
                 <div class="card-header">
-                    <h2>New Mechanic</h2>
+                    <h2>New Truck</h2>
                 </div>
                 <div class="card-body">
                     <form action="{{route('t_store')}}" method="post">
