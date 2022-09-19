@@ -22,6 +22,11 @@
                         <p>
                             {{$truck->mechanic_notices}}
                         </p>
+                        @if($truck->photo)
+                        <div class="img">
+                            <img src="{{$truck->photo}}">
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
