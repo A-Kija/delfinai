@@ -138,6 +138,9 @@ class TruckController extends Controller
      */
     public function destroy(Truck $truck)
     {
+        if ($truck->photo) {
+            unlink(public_path().'/trucks/' .pathinfo($truck->photo, PATHINFO_FILENAME).'.'.pathinfo($truck->photo, PATHINFO_EXTENSION));
+        }
         $truck->delete();
         return redirect()->route('t_index');
     }
