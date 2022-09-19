@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Truck;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
+use Image;
 
 class TruckController extends Controller
 {
@@ -44,27 +45,17 @@ class TruckController extends Controller
     public function store(Request $request)
     {
         $truck = new Truck;
-
-
-
-
-
             if ($request->file('photo')) {
-
                 $photo = $request->file('photo');
-    
                 $ext = $photo->getClientOriginalExtension();
-    
                 $name = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
-    
                 $file = $name. '-' . rand(100000, 999999). '.' . $ext;
-    
-                // $Image = Image::make($photo)->pixelate(12);
-    
-                // $Image->save(public_path().'/images/'.$file);
-    
-                $photo->move(public_path().'/trucks', $file);
-    
+                
+                $Image = Image::make($photo)->pixelate(12);
+                $Image->save(public_path().'/trucks/'.$file);
+
+                // $photo->move(public_path().'/trucks', $file);
+
                 $truck->photo = asset('/trucks') . '/' . $file;
     
             }
@@ -142,10 +133,6 @@ class TruckController extends Controller
             $photo->move(public_path().'/trucks', $file);
             $truck->photo = asset('/trucks') . '/' . $file;
         }
-
-
-
-
 
         $truck->save();
 
