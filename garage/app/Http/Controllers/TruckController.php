@@ -110,6 +110,7 @@ class TruckController extends Controller
      */
     public function destroy(Truck $truck)
     {
-        //
+        $truck->delete();
+        return redirect()->route('t_index');
     }
 }
