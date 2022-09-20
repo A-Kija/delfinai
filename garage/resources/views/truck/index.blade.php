@@ -7,6 +7,43 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Truck</h2>
+                    <form action="{{route('m_index')}}" method="get">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <select name="mech" class="form-select mt-1">
+                                                    @foreach($mechanics as $mechanic)
+                                                        <option value="{{$mechanic->id}}">{{$mechanic->name}} {{$mechanic->surname}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-6">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-7">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <select name="per_page" class="form-select mt-1">
+                                                   
+                                                </select>
+                                            </div>
+                                            <div class="col-6">
+                                                
+                                                <a href="{{route('m_index')}}" class="btn btn-secondary m-1">Reset</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
