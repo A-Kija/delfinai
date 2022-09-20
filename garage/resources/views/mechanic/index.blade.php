@@ -7,11 +7,10 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Mechanics</h2>
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-6">
-                                <form action="{{route('m_index')}}" method="get">
+                    <form action="{{route('m_index')}}" method="get">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-6">
@@ -28,11 +27,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
-
-                            <div class="col-6">
-                                <form action="{{route('m_index')}}" method="get">
+                                </div>
+                                <div class="col-6">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-6">
@@ -48,11 +44,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">

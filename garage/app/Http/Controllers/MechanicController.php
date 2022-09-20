@@ -25,7 +25,8 @@ class MechanicController extends Controller
         
         return view('mechanic.index', [
             'mechanics' => $mechanics,
-            'sortSelect' => $request->sort
+            'sortSelect' => $request->sort,
+            'perPage' => $request->per_page
         ]);
     }
 
