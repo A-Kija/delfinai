@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container --content">
     <div class="row justify-content-center">
         <div class="col-9">
             <div class="card">
@@ -22,8 +22,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-6">
-                                                <button type="submit" class="btn btn-primary m-1">Sort</button>
-
+                                                {{-- <button type="submit" class="btn btn-primary m-1">Sort</button> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -33,6 +32,7 @@
                                         <div class="row">
                                             <div class="col-3">
                                                 <select name="per_page" class="form-select mt-1">
+                                                    <option value="all" @if('all'==$perPage) selected @endif>All</option>
                                                     <option value="5" @if('5'==$perPage) selected @endif>5</option>
                                                     <option value="10" @if('10'==$perPage) selected @endif>10</option>
                                                     <option value="20" @if('20'==$perPage) selected @endif>20</option>
@@ -40,7 +40,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-6">
-                                                <button type="submit" class="btn btn-primary m-1">results in page</button>
+                                                {{-- <button type="submit" class="btn btn-primary m-1">results in page</button> --}}
                                                 <a href="{{route('m_index')}}" class="btn btn-secondary m-1">Reset</a>
                                             </div>
                                         </div>
