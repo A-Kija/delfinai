@@ -23,7 +23,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <button type="submit" class="btn btn-primary m-1">Sort</button>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -31,8 +31,8 @@
                                 <div class="col-7">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-2">
-                                                <select name="sort" class="form-select mt-1">
+                                            <div class="col-3">
+                                                <select name="per_page" class="form-select mt-1">
                                                     <option value="5" @if('5'==$perPage) selected @endif>5</option>
                                                     <option value="10" @if('10'==$perPage) selected @endif>10</option>
                                                     <option value="20" @if('20'==$perPage) selected @endif>20</option>
@@ -41,7 +41,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <button type="submit" class="btn btn-primary m-1">results in page</button>
-                                            <a href="{{route('m_index')}}" class="btn btn-secondary m-1">Reset</a>
+                                                <a href="{{route('m_index')}}" class="btn btn-secondary m-1">Reset</a>
                                             </div>
                                         </div>
                                     </div>
