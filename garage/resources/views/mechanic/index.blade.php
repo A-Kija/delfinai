@@ -12,10 +12,10 @@
                             <div class="row">
                                 <div class="col-4">
                                     <select name="sort" class="form-select mt-1">
-                                        <option value="name_asc" @if('name_asc' == $sortSelect) selected @endif>Name AZ</option>
-                                        <option value="name_desc" @if('name_desc' == $sortSelect) selected @endif>Name ZA</option>
-                                        <option value="surname_asc" @if('surname_asc' == $sortSelect) selected @endif>Surname AZ</option>
-                                        <option value="surname_desc" @if('surname_desc' == $sortSelect) selected @endif>Surname ZA</option>
+                                        <option value="name_asc" @if('name_asc'==$sortSelect) selected @endif>Name AZ</option>
+                                        <option value="name_desc" @if('name_desc'==$sortSelect) selected @endif>Name ZA</option>
+                                        <option value="surname_asc" @if('surname_asc'==$sortSelect) selected @endif>Surname AZ</option>
+                                        <option value="surname_desc" @if('surname_desc'==$sortSelect) selected @endif>Surname ZA</option>
                                     </select>
                                 </div>
                                 <div class="col-4">
@@ -51,15 +51,12 @@
                         <li class="list-group-item">No mechanics found</li>
                         @endforelse
                     </ul>
-                     
                 </div>
                 <div class="me-3 mx-3">
-               {{ $mechanics->links() }}
-               </div>
+                    {{ $mechanics->links() }}
+                </div>
             </div>
-             
         </div>
-       
     </div>
 </div>
 @endsection
