@@ -16,15 +16,16 @@ class MechanicController extends Controller
     {
         
         $mechanics = match ($request->sort) {
-            'name_asc' => Mechanic::orderBy('name', 'asc')->get(),
-            'name_desc' => Mechanic::orderBy('name', 'desc')->get(),
-            'surname_asc' => Mechanic::orderBy('surname', 'asc')->get(),
-            'surname_desc' => Mechanic::orderBy('surname', 'desc')->get(),
+            'name_asc' => Mechanic::orderBy('name', 'asc')->paginate(5),
+            'name_desc' => Mechanic::orderBy('name', 'desc')->paginate(5),
+            'surname_asc' => Mechanic::orderBy('surname', 'asc')->paginate(5),
+            'surname_desc' => Mechanic::orderBy('surname', 'desc')->paginate(5),
             default => Mechanic::all()
         };
         
         return view('mechanic.index', [
-            'mechanics' => $mechanics
+            'mechanics' => $mechanics,
+            'sortSelect' => $request->sort
         ]);
     }
 
