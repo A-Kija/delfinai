@@ -23,18 +23,18 @@ class TruckController extends Controller
                     $query->where('maker', 'like', '%'.$request->s.'%')
                     ->orWhere('make_year', 'like', '%'.$request->s.'%')
                     ->orWhere('plate', 'like', '%'.$request->s.'%');
-                })->get();
+                })->paginate(15)->withQueryString();
             } else {
-                $trucks = Truck::where('mechanic_id', $id)->get();
+                $trucks = Truck::where('mechanic_id', $id)->paginate(15)->withQueryString();
             }
         } else {
             if ($request->s) {
                 $trucks = Truck::where('maker', 'like', '%'.$request->s.'%')
                 ->orWhere('make_year', 'like', '%'.$request->s.'%')
                 ->orWhere('plate', 'like', '%'.$request->s.'%')
-                ->get();
+                ->paginate(15)->withQueryString();
             } else {
-                $trucks = Truck::all();
+                $trucks = Truck::paginate(15)->withQueryString();
             }
         }
 
