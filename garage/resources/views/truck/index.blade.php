@@ -32,8 +32,7 @@
                                         <div class="row">
                                             <div class="col-8">
                                                 <div class="input-group mb-3">
-                                                    
-                                                    <input type="text" name="s" class="form-control" value="{{old('s')}}">
+                                                    <input type="text" name="s" class="form-control" value="{{$s}}">
                                                 <button type="submit" class="input-group-text">Search</button>
                                                 </div>
                                             </div>

@@ -18,9 +18,20 @@ class TruckController extends Controller
     {
         if ($request->mech) {
             $id = (int) $request->mech;
-            $trucks = Truck::where('mechanic_id', $id)->get();
+            if ($request->s) {
+                $trucks = Truck::where('mechanic_id', $id)->where(function($query) use ($request) {
+                    $query->where('maker', 'like', '%'.$request->s.'%')
+                    ->orWhere('plate', 'like', '%'.$request->s.'%');
+                })->get();
+            } else {
+                $trucks = Truck::where('mechanic_id', $id)->get();
+            }
         } else {
-            $trucks = Truck::all();
+            if ($request->s) {
+                $trucks = Truck::where('maker', 'like', '%'.$request->s.'%')->get();
+            } else {
+                $trucks = Truck::all();
+            }
         }
 
         $mechanics = Mechanic::orderBy('surname')->get();
@@ -28,7 +39,8 @@ class TruckController extends Controller
         return view('truck.index', [
             'trucks' => $trucks,
             'mechanics' => $mechanics,
-            'mech' => $id ?? 0
+            'mech' => $id ?? 0,
+            's' => $request->s ?? ''
         ]);
     }
 
