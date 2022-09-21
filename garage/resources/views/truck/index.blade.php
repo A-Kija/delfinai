@@ -15,6 +15,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <select name="mech" class="form-select mt-1">
+                                                    <option value="0">All</option>
                                                     @foreach($mechanics as $mechanic)
                                                     <option value="{{$mechanic->id}}" @if($mech==$mechanic->id) selected @endif>{{$mechanic->name}} {{$mechanic->surname}}</option>
                                                     @endforeach
@@ -29,15 +30,15 @@
                                 <div class="col-7">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-9">
+                                            <div class="col-8">
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text">Search</span>
+                                                    
                                                     <input type="text" name="s" class="form-control" value="{{old('s')}}">
+                                                <button type="submit" class="input-group-text">Search</button>
                                                 </div>
                                             </div>
-                                            <div class="col-3">
-
-                                                <a href="{{route('t_index')}}" class="btn btn-secondary m-1">Reset</a>
+                                            <div class="col-2">
+                                                <a href="{{route('t_index')}}" class="btn btn-secondary">Reset</a>
                                             </div>
                                         </div>
                                     </div>
