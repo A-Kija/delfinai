@@ -21,6 +21,7 @@ class TruckController extends Controller
             if ($request->s) {
                 $trucks = Truck::where('mechanic_id', $id)->where(function($query) use ($request) {
                     $query->where('maker', 'like', '%'.$request->s.'%')
+                    ->orWhere('make_year', 'like', '%'.$request->s.'%')
                     ->orWhere('plate', 'like', '%'.$request->s.'%');
                 })->get();
             } else {
@@ -28,7 +29,10 @@ class TruckController extends Controller
             }
         } else {
             if ($request->s) {
-                $trucks = Truck::where('maker', 'like', '%'.$request->s.'%')->get();
+                $trucks = Truck::where('maker', 'like', '%'.$request->s.'%')
+                ->orWhere('make_year', 'like', '%'.$request->s.'%')
+                ->orWhere('plate', 'like', '%'.$request->s.'%')
+                ->get();
             } else {
                 $trucks = Truck::all();
             }

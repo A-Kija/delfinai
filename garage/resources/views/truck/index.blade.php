@@ -54,6 +54,7 @@
                                 <div class="content">
                                     <h2><span>plate: </span>{{$truck->plate}}</h2>
                                     <h4><span>maker: </span>{{$truck->maker}}</h4>
+                                    <h4><span>year: </span>{{$truck->make_year}}</h4>
                                     <h5>
                                         <span>mechanic: </span>
                                         <a href="{{route('m_show', $truck->getMechanic->id)}}">
