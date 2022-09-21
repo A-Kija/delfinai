@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Breakdown;
-use App\Http\Requests\StoreBreakdownRequest;
-use App\Http\Requests\UpdateBreakdownRequest;
+use Illuminate\Http\Request;
 
 class BreakdownController extends Controller
 {
@@ -15,7 +14,7 @@ class BreakdownController extends Controller
      */
     public function index()
     {
-        //
+        return view('breakdown.index');
     }
 
     /**
@@ -31,10 +30,10 @@ class BreakdownController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBreakdownRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBreakdownRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -64,11 +63,11 @@ class BreakdownController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBreakdownRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Breakdown  $breakdown
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBreakdownRequest $request, Breakdown $breakdown)
+    public function update(Request $request, Breakdown $breakdown)
     {
         //
     }
