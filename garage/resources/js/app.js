@@ -1,5 +1,5 @@
 import './bootstrap';
-
+import axios from 'axios';
 
 const mainContent = document.querySelector('.--content');
 if (mainContent) {
@@ -11,13 +11,18 @@ if (mainContent) {
 
 
 const breakdown = document.querySelector('#breakdown');
-const trucksList = breakdown.querySelector('#trucks-list');
-const mechanicId = breakdown.querySelector('[name=mechanic_id]')
 if (breakdown) {
+    const trucksList = breakdown.querySelector('#trucks-list');
+    const mechanicId = breakdown.querySelector('[name=mechanic_id]')
     mechanicId.addEventListener('change', () => {
         if (mechanicId.value === '0') {
             trucksList.innerHTML = '';
+        } else {
+            axios.get(breakdownUrl + '/trucks-list/' + mechanicId.value)
+                .then(res => {
+                    trucksList.innerHTML = res.data.html;
+                })
         }
-        console.log(mechanicId.value);
+
     });
 }
