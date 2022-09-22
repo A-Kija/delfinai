@@ -13,7 +13,8 @@ if (mainContent) {
 const breakdown = document.querySelector('#breakdown');
 if (breakdown) {
     const trucksList = breakdown.querySelector('#trucks-list');
-    const mechanicId = breakdown.querySelector('[name=mechanic_id]')
+    const mechanicId = breakdown.querySelector('[name=mechanic_id]');
+    const submitButton = breakdown.querySelector('[data-submit]');
     mechanicId.addEventListener('change', () => {
         if (mechanicId.value === '0') {
             trucksList.innerHTML = '';
@@ -25,4 +26,12 @@ if (breakdown) {
         }
 
     });
+    submitButton.addEventListener('click', () => {
+        const data = {};
+        breakdown.querySelectorAll('[data-create]')
+            .forEach(i => {
+                data[i.getAttribute('name')] = i.value;
+            });
+        console.log(data);
+    })
 }
