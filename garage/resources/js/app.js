@@ -32,6 +32,9 @@ if (breakdown) {
             .forEach(i => {
                 data[i.getAttribute('name')] = i.value;
             });
-        console.log(data);
+        axios.post(breakdownUrl + '/create', data)
+            .then(res => {
+                console.log(res);
+            })
     })
 }
