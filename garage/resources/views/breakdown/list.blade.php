@@ -9,10 +9,17 @@
                     <ul class="list-group">
                         @forelse($breakdowns as $breakdown)
                         <li class="list-group-item">
-                            <div class="trucks-list">
+                            <div class="breakdowns-list">
                                 <div class="content">
-                                    <h2><span></span>{{$breakdown->title}}</h2>
-                                    <h4><span>status: </span>{{$breakdown->status}}</h4>
+                                    <div class="trucks-list">
+                                        <div class="content">
+                                            <h2><span></span>{{$breakdown->title}}</h2>
+                                            <h4><span>status: </span>{{$breakdown->status}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <button type="button" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </li>
