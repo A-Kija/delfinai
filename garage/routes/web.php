@@ -50,5 +50,7 @@ Route::prefix('breakdown')->name('b_')->group(function () {
     Route::get('/trucks-list/{mechanic_id}', [B::class, 'trucksList']);
     Route::post('/create', [B::class, 'store']);
     Route::get('/list', [B::class, 'list']);
+    // Route::delete('/{id}', [B::class, 'destroy']);
+    Route::delete('/{breakdown}', [B::class, 'destroy']);
 
 });

@@ -61,6 +61,11 @@ const deleteEvent = () => {
         .forEach(b => {
             b.addEventListener('click', () => {
                 axios.delete(breakdownUrl + '/' + b.dataset.id)
+                    .then(res => {
+                        if (res.data.refresh == 'list') {
+                            getList();
+                        }
+                    })
             });
         });
 }

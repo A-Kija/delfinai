@@ -107,6 +107,21 @@ class BreakdownController extends Controller
      */
     public function destroy(Breakdown $breakdown)
     {
-        //
+        $breakdown->delete();
+        return response()->json([
+            'msg' => 'All good',
+            'status' => 'OK',
+            'refresh' => 'list'
+        ]);
     }
+
+    // public function destroy(int $id)
+    // {
+    //     Breakdown::where('id', $id)->first()->delete();
+    //     return response()->json([
+    //         'msg' => 'All good',
+    //         'status' => 'OK',
+    //         'refresh' => 'list'
+    //     ]);
+    // }
 }
