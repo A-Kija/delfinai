@@ -79,8 +79,10 @@ const modalEvent = () => {
         .forEach(b => {
             b.addEventListener('click', () => {
                 fadeModal.show();
-                modal.dataset.id = b.dataset.id;
+                axios.get(breakdownUrl + '/modal/' + b.dataset.id)
+                    .then(res => {
+                        modal.querySelector('.modal-dialog').innerHTML = res.data.html;
+                    })
             })
         })
-
 }

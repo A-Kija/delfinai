@@ -15,4 +15,9 @@ class Breakdown extends Model
         3 => 'Well done'
     ];
 
+    public function getTruck() 
+    {
+        return $this->belongsTo(Truck::class, 'truck_id', 'id');
+    }
+
 }

@@ -65,15 +65,16 @@ class BreakdownController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Breakdown  $breakdown
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Breakdown $breakdown)
+
+    public function modal(Breakdown $breakdown)
     {
-        //
+        $html = view('breakdown.modal_content')
+        ->with('breakdown', $breakdown)
+        ->with('status', Breakdown::STATUS)
+        ->render();
+        return response()->json([
+            'html' => $html,
+        ]);
     }
 
     /**
