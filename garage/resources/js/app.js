@@ -1,5 +1,6 @@
 import './bootstrap';
 import axios from 'axios';
+import { Modal } from 'bootstrap';
 
 const mainContent = document.querySelector('.--content');
 if (mainContent) {
@@ -53,6 +54,7 @@ const getList = () => {
         .then(res => {
             breakdownsList.innerHTML = res.data.html;
             deleteEvent();
+            modalEvent();
         })
 }
 
@@ -68,4 +70,17 @@ const deleteEvent = () => {
                     })
             });
         });
+}
+
+const modalEvent = () => {
+    const modal = document.querySelector('#edit-modal');
+    const fadeModal = new Modal(modal);
+    document.querySelectorAll('.edit--button')
+        .forEach(b => {
+            b.addEventListener('click', () => {
+                fadeModal.show();
+                modal.dataset.id = b.dataset.id;
+            })
+        })
+
 }
