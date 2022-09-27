@@ -1,7 +1,10 @@
-function RedSquare() {
+function RedSquare({color, size}) {
 
     return (
-        <h2>CRIMSON</h2>
+        <h2 style={{
+            color,
+            fontSize: size + 'px'
+        }}>CRIMSON</h2>
     );
 }
 
