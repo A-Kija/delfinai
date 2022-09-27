@@ -9,6 +9,7 @@
 
                 <h2>{{$breakdown->getTruck->getMechanic->name}} {{$breakdown->getTruck->getMechanic->surname}}</h2>
                 <h2>{{$breakdown->getTruck->plate}}</h2>
+                <input data-edit type="hidden" name="truck_id" value="{{$breakdown->truck_id}}">
 
                 <div id="trucks-list"></div>
 
