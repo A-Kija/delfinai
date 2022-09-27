@@ -32,7 +32,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/red-square', [S::class, 'redSquare']);
-
+Route::get('/red-square-blade', [S::class, 'redSquareBlade']);
 
 
 require __DIR__.'/auth.php';

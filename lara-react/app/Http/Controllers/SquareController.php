@@ -15,4 +15,13 @@ class SquareController extends Controller
             'size' => '78'
         ]);
     }
+
+    public function redSquareBlade()
+    {
+        return view('RedSquare', [
+            'color' => 'crimson',
+            'size' => '78'
+        ]);
+    }
+
 }
