@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Session;
 
 class SquareController extends Controller
 {
@@ -26,10 +27,29 @@ class SquareController extends Controller
 
         $request->session()->put('sq', $squares);
 
+
+        return response()->json([
+            'msg' => 'OK'
+        ]);
+        
+    }
+
+    public function getSquares()
+    {
+        $squares = Session::get('sq', []);
+
         return response()->json([
             'squares' => $squares
         ]);
-        
+    }
+
+    public function resetSquares()
+    {
+        $squares = Session::put('sq', []);
+
+        return response()->json([
+            'msg' => 'OK'
+        ]);
     }
 
     // public function redSquareBlade()
