@@ -13,6 +13,7 @@
         align-items: center;
         font-size: 30px;
         letter-spacing: 2px;
+        animation: spin infinite 10s linear;
     }
 }
 
@@ -47,5 +48,14 @@
         margin: 15px;
         border: none;
         background-color: transparent;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
