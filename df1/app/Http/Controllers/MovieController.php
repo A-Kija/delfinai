@@ -15,7 +15,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+       return 'ba ba';
     }
 
     /**
@@ -38,7 +38,13 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Movie::create([
+            'title' => $request->title,
+            'price' => $request->price,
+            'category_id' => $request->category_id
+        ]);
+
+        return redirect()->back();
     }
 
     /**
