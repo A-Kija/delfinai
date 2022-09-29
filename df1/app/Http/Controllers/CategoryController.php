@@ -14,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('category.index', [
+            'categories' => Category::orderBy('updated_at', 'desc')->get()
+        ]);
     }
 
     /**
@@ -39,7 +41,7 @@ class CategoryController extends Controller
             'title' => $request->title
         ]);
 
-        return redirect()->back();
+        return redirect()->route('c_index');
     }
 
     /**
