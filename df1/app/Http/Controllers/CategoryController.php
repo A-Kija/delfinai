@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -98,5 +99,14 @@ class CategoryController extends Controller
         }
         $category->delete();
         return redirect()->route('c_index');
+    }
+
+    public function destroyAll(Category $category)
+    {
+
+        $ids = $category->movies()->pluck('id')->all();
+        Movie::destroy($ids);
+        return redirect()->route('c_index');
+
     }
 }
