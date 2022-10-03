@@ -56,9 +56,10 @@
                                     <h4><span>Price: </span>{{$movie->price}}</h4>
                                     <h5>
                                         <span>Category: </span>
-                                        <a href="{{route('m_show', $movie->getCategory->id)}}">
-                                            {{$movie->getCategory->name}} {{$movie->getCategory->surname}}
-                                        </a></h5>
+                                        <a href="{{route('c_show', $movie->getCategory->id)}}">
+                                            {{$movie->getCategory->title}}
+                                        </a>
+                                    </h5>
                                     @if($movie->photo)
                                     <h5><a href="{{$movie->photo}}" target="_BLANK">Photo</a></h5>
                                     @endif
