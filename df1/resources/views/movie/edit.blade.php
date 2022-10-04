@@ -18,6 +18,10 @@
                             <span class="input-group-text">Price</span>
                             <input type="text" name="price" class="form-control" value="{{old('price', $movie->price)}}">
                         </div>
+                        <div class="input-group mt-3">
+                            <span class="input-group-text">Photo</span>
+                            <input type="file" name="photo[]" multiple class="form-control">
+                        </div>
                         <div class="img-small-ch mt-3">
                             @forelse($movie->getPhotos as $photo)
                             <div class="img">

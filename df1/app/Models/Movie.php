@@ -47,4 +47,18 @@ class Movie extends Model
             MovieImage::insert($movieImage);
         }
     }
+
+    public function removeImages(?array $photos) : void
+    {
+        if ($photos) {
+            $toDelete = MovieImage::whereIn('id', $photos)->get();
+            foreach ($toDelete as $photo) {
+                $file = public_path().'/images/' .pathinfo($photo->url, PATHINFO_FILENAME).'.'.pathinfo($photo->url, PATHINFO_EXTENSION);
+                if (file_exists($file)) {
+                    unlink($file);
+                }
+            }
+            MovieImage::destroy($photos);
+        }
+    }
 }
