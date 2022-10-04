@@ -21,12 +21,8 @@
                         <div class="img-small-ch mt-3">
                             @forelse($movie->getPhotos as $photo)
                             <div class="img">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{$photo->id}}" id="{{$photo->id}}-del-photo" name="delete_photo[]">
-                                    <label class="form-check-label" for="{{$photo->id}}-del-photo">
-                                        Delete photo
-                                    </label>
-                                </div>
+                                <label for="{{$photo->id}}-del-photo">X</label>
+                                <input type="checkbox" value="{{$photo->id}}" id="{{$photo->id}}-del-photo" name="delete_photo[]">
                                 <img src="{{$photo->url}}">
                             </div>
                             @empty
