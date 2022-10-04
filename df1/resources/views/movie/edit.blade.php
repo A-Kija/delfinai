@@ -18,7 +18,7 @@
                             <span class="input-group-text">Price</span>
                             <input type="text" name="price" class="form-control" value="{{old('price', $movie->price)}}">
                         </div>
-                        <div class="img-small mt-3">
+                        <div class="img-small-ch mt-3">
                             @forelse($movie->getPhotos as $photo)
                             <div class="img">
                                 <div class="form-check">
