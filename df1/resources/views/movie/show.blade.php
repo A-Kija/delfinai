@@ -19,17 +19,27 @@
                         <div class="line"><small>Category:</small>
                             <h5>{{$movie->getCategory->title}}</h5>
                         </div>
-                        @forelse($movie->getPhotos as $photo)
-                            <div class="img">
-                                <img src="{{$photo->url}}">
+                        <div class="swiper">
+
+                            <div class="swiper-wrapper">
+                                @forelse($movie->getPhotos as $photo)
+                                <div class="swiper-slide">
+
+                                    <img src="{{$photo->url}}">
+
+                                </div>
+                                @empty
+                                <h2>No photos yet.</h2>
+                                @endforelse
                             </div>
-                        @empty
-                            <h2>No photos yet.</h2>
-                        @endforelse
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
