@@ -17,6 +17,11 @@ class Movie extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+    public function getPhotos()
+    {
+        return $this->hasMany(MovieImage::class, 'movie_id', 'id');
+    }
+
     public function addImages(?array $photos) : void
     {
         if ($photos) {
