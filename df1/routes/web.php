@@ -24,8 +24,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('category')->name('c_')->group(function () {
-    Route::get('/', [C::class, 'index'])->name('index');
-    Route::get('/create', [C::class, 'create'])->name('create');
+    Route::get('/', [C::class, 'index'])->name('index')->middleware('gate:user');
+    Route::get('/create', [C::class, 'create'])->name('create')->middleware('gate:admin');
     Route::post('/create', [C::class, 'store'])->name('store');
     Route::get('/show/{category}', [C::class, 'show'])->name('show');
     Route::delete('/delete/{category}', [C::class, 'destroy'])->name('delete');

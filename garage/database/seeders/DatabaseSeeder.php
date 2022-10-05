@@ -21,11 +21,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Bebras',
             'email' => 'bebras@gmail.com',
             'password' => Hash::make('123'),
+            'role' => 1
         ]);
         DB::table('users')->insert([
             'name' => 'Briedis',
             'email' => 'briedis@gmail.com',
             'password' => Hash::make('123'),
+            'role' => 10
         ]);
         $mc = 20;
         $faker = F::create('lt_LT');
