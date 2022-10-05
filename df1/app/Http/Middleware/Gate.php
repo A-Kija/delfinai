@@ -23,7 +23,7 @@ class Gate
             10 => ['user', 'admin', 'home']
         ];
 
-        if ('home' == $role && !Auth::user()) {
+        if (!Auth::user()) {
             return redirect('login');
         }
 

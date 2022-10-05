@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -10,14 +12,11 @@ class HomeController extends Controller
 
     public function homeList()
     {
-        return view('welcome');
+        return view('movie.index', [
+            'movies' => Movie::orderBy('updated_at', 'desc')->get(),
+           ]);
     }
 
-
-    public function index()
-    {
-        return view('home');
-    }
 
 
 
