@@ -45,7 +45,8 @@ class HomeController extends Controller
             'categories' => Category::orderBy('title')->get(),
             'cat' => $request->cat ?? '0',
             'sort' => $request->sort ?? '0',
-            'sortSelect' => Movie::SORT_SELECT
+            'sortSelect' => Movie::SORT_SELECT,
+            's' => $request->s ?? '',
         ]);
     }
 
