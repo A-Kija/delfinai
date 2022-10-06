@@ -17,7 +17,14 @@ class HomeController extends Controller
             $movies = Movie::where('category_id', $request->cat);
         } 
         else if ($request->s) {
-            $movies = Movie::where('title', 'like', '%'.$request->s.'%');
+            $search = explode(' ', $request->s);
+            if (count($search) == 1) {
+                $movies = Movie::where('title', 'like', '%'.$request->s.'%');
+            }
+            else {
+                $movies = Movie::where('title', 'like', '%'.$search[0].' '.$search[1].'%')
+                ->orWhere('title', 'like', '%'.$search[1].'%'.$search[0].'%');
+            }
         }
         else {
             $movies = Movie::where('id', '>', 0);
