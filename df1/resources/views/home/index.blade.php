@@ -7,22 +7,28 @@
             <div class="card">
                 <div class="card-header">
                     <h2>Movie</h2>
-                    <form action="{{route('m_index')}}" method="get">
+                    <form action="{{route('home')}}" method="get">
                         <div class="container">
                             <div class="row">
                                 <div class="col-5">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-6">
-                                                {{-- <select name="mech" class="form-select mt-1">
+                                                <select name="cat" class="form-select mt-1">
                                                     <option value="0">All</option>
-                                                    @foreach($mechanics as $mechanic)
-                                                    <option value="{{$mechanic->id}}" @if($mech==$mechanic->id) selected @endif>{{$mechanic->name}} {{$mechanic->surname}}</option>
+                                                    @foreach($categories as $category)
+                                                    <option value="{{$category->id}}" @if($cat==$category->id) selected @endif>{{$category->title}}</option>
                                                     @endforeach
-                                                </select> --}}
+                                                </select>
                                             </div>
                                             <div class="col-6">
+                                                <select name="sort" class="form-select mt-1">
+                                                    <option value="0">All</option>
+                                                    @foreach($sortSelect as $option)
+                                                    <option value="{{$option[0]}}" @if($sort==$option[0]) selected @endif>{{$option[1]}}</option>
+                                                    @endforeach
 
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -37,7 +43,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-2">
-                                                <a href="{{route('m_index')}}" class="btn btn-secondary">Reset</a>
+                                                <a href="{{route('home')}}" class="btn btn-secondary">Reset</a>
                                             </div>
                                         </div>
                                     </div>
@@ -69,7 +75,7 @@
                                     <form action="{{route('rate', $movie)}}" method="post">
                                         <select name="rate">
                                             @foreach(range(1, 10) as $value)
-                                                <option value="{{$value}}">{{$value}}</option>
+                                            <option value="{{$value}}">{{$value}}</option>
                                             @endforeach
                                         </select>
                                         @csrf
