@@ -16,6 +16,9 @@ class HomeController extends Controller
         if ($request->cat) {
             $movies = Movie::where('category_id', $request->cat);
         } 
+        else if ($request->s) {
+            $movies = Movie::where('title', 'like', '%'.$request->s.'%');
+        }
         else {
             $movies = Movie::where('id', '>', 0);
         }
