@@ -16,7 +16,7 @@ class Movie extends Model
         ['rate_asc', 'Rating 1 - 9'],
         ['rate_desc', 'Rating 9 - 1'],
         ['title_asc', 'Title A - Z'],
-        ['title_desc', 'Rating Z - A'],
+        ['title_desc', 'Title Z - A'],
         ['price_asc', 'Price 1 - 9'],
         ['price_desc', 'Price 9 - 1'],
     ];

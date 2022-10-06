@@ -30,17 +30,15 @@ class HomeController extends Controller
         else if ($request->sort == 'title_asc') {
             $movies->orderBy('title');
         }
-        else if ($request->sort == 'title_asc') {
+        else if ($request->sort == 'title_desc') {
             $movies->orderBy('title', 'desc');
         }
         else if ($request->sort == 'price_asc') {
             $movies->orderBy('price');
         }
-        else if ($request->sort == 'price_asc') {
+        else if ($request->sort == 'price_desc') {
             $movies->orderBy('price', 'desc');
         }
-        
-        
         
         return view('home.index', [
             'movies' => $movies->get(),
