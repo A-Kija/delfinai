@@ -85,7 +85,7 @@
                         <ul class="list-group m-3">
                             @forelse($movie->getComments as $comment)
                             <li class="list-group-item">
-                                <p>{{$comment->post}}</p>
+                                <div>{{$comment->post}}</div>
                             </li>
                             @empty
                             <li class="list-group-item">No comment.</li>

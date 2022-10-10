@@ -12,35 +12,30 @@
                     <ul class="list-group">
                         @forelse($movies as $movie)
                         <li class="list-group-item">
-                            <div class="categories-list">
+                            <div>
                                 <div class="content">
                                     <h2>{{$movie->title}}
                                         <small>[{{$movie->getComments()->count()}}]</small>
                                     </h2>
                                 </div>
-
                                 <ul class="list-group">
                                     @forelse($movie->getComments as $comment)
                                     <li class="list-group-item">
-                                        <p>{{$comment->post}}</p>
-
-
+                                        <div>{!!$comment->post!!}</div>
                                         <div class="buttons">
                                             @if(Auth::user()->role >= 10)
                                             <form action="{{route('c_delete', $comment)}}" method="post">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger mt-2">Delete</button>
                                             </form>
                                             @endif
                                         </div>
-
                                     </li>
                                     @empty
                                     <li class="list-group-item">No comments found</li>
                                     @endforelse
                                 </ul>
-
                             </div>
                         </li>
                         @empty
