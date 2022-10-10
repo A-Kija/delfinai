@@ -81,14 +81,25 @@
                         </div>
                     </div>
                     <div class="comments">
-                        <form action="{{route('comment', $movie)}}" method="post">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Comment</span>
-                                <textarea name="post" class="form-control"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-info">add comment</button>
-                            @csrf
-                        </form>
+
+                        <ul class="list-group">
+                            @forelse($movie->getComments as $comment)
+                            <li class="list-group-item">
+                                <p>{{$comment->post}}</p>
+                            </li>
+                            @empty
+                            <li class="list-group-item">No comment.</li>
+                            @endforelse
+
+
+                            <form action="{{route('comment', $movie)}}" method="post">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Comment</span>
+                                    <textarea name="post" class="form-control"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-info">add comment</button>
+                                @csrf
+                            </form>
                     </div>
                 </li>
                 @empty
