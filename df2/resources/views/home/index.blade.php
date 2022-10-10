@@ -90,7 +90,7 @@
                             @empty
                             <li class="list-group-item">No comment.</li>
                             @endforelse
-
+                        </ul>
 
                             <form action="{{route('comment', $movie)}}" method="post">
                                 <div class="input-group mb-3">
