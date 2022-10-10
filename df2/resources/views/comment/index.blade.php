@@ -41,19 +41,6 @@
                                     @endforelse
                                 </ul>
 
-                                <div class="buttons">
-                                    @if(Auth::user()->role >= 10)
-                                    <a href="{{route('c_edit', $category)}}" class="btn btn-success">Edit</a>
-                                    <form action="{{route('c_delete', $category)}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                    @endif
-                                </div>
-
-
-
                             </div>
                         </li>
                         @empty
