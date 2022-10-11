@@ -41,9 +41,17 @@ class MovieController extends Controller
     {
         
         $validated = $request->validate([
-            'title' => 'required',
-            'price' => 'required'
-        ]);
+            'title' => 'required|min:3|max:10',
+            'price' => 'required|numeric|min:1|max:100',
+            'photo.*' => 'sometimes|required|mimes:jpg|max:2000'
+        ],
+        [
+            'title.required' => 'Nėra tytlo',
+            'title.min' => 'Tytlas trumpas',
+            'title.max' => 'Tytlas ilgas',
+            'price.required' => 'Nieko nekainuoti negali'
+        ]
+    );
         
         Movie::create([
             'title' => $request->title,
