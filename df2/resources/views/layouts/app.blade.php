@@ -100,11 +100,9 @@
         <main class="py-4">
 
             @if ($errors->any())
-
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-6 m-4">
-
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -112,13 +110,22 @@
                                 @endforeach
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             @endif
 
+            @if(Session::has('ok'))
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-6 m-4">
+                        <div class="alert alert-success">
+                            {{Session::get('ok')}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
 
             @yield('content')
         </main>
