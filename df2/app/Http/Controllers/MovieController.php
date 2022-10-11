@@ -104,7 +104,7 @@ class MovieController extends Controller
         ->removeImages($request->delete_photo)
         ->addImages($request->file('photo'));
 
-        return redirect()->route('m_index')->with('ok', 'All Good!');;
+        return redirect()->route('m_index')->with('ok', 'All Good!');
     }
 
     /**
