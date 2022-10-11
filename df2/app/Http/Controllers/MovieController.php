@@ -39,6 +39,12 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $validated = $request->validate([
+            'title' => 'required',
+            'price' => 'required'
+        ]);
+        
         Movie::create([
             'title' => $request->title,
             'price' => $request->price,
