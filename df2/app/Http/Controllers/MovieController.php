@@ -104,7 +104,7 @@ class MovieController extends Controller
         ->removeImages($request->delete_photo)
         ->addImages($request->file('photo'));
 
-        return redirect()->route('m_index');
+        return redirect()->route('m_index')->with('ok', 'All Good!');;
     }
 
     /**
@@ -119,7 +119,8 @@ class MovieController extends Controller
             $delIds = $movie->getPhotos()->pluck('id')->all();
             $movie->removeImages($delIds);
         }
+        $title = $movie->title;
         $movie->delete();
-        return redirect()->route('m_index');
+        return redirect()->route('m_index')->with('ok', "$title gone!");
     }
 }
