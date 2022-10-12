@@ -94,19 +94,8 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        if ($tag->movies()->count()) {
-            return 'Negalima.';
-        }
         $tag->delete();
         return redirect()->route('t_index');
     }
 
-    public function destroyAll(Tag $tag)
-    {
-
-        $ids = $tag->movies()->pluck('id')->all();
-        Movie::destroy($ids);
-        return redirect()->route('t_index');
-
-    }
 }
