@@ -51,8 +51,8 @@ class MovieController extends Controller
         Movie::create([
             'title' => $request->title,
             'price' => $request->price,
-        ])->addImages($request->file('photo'));
-
+        ])->addImages($request->file('photo'))
+        ->addTags($request->tag);
         return redirect()->route('m_index')->with('ok', 'All Good!');
     }
 
