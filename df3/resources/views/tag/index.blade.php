@@ -6,7 +6,7 @@
         <div class="col-9">
             <div class="card">
                 <div class="card-header">
-                    <h2>Categories</h2>
+                    <h2>Tags</h2>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
@@ -15,7 +15,7 @@
                             <div class="categories-list">
                                 <div class="content">
                                     <h2>{{$tag->title}}
-                                    <small>[{{$tag->movies()->count()}}]</small>
+                                        <small>[{{$tag->getPivot()->count()}}]</small>
                                     </h2>
                                 </div>
                                 <div class="buttons">
@@ -32,7 +32,7 @@
                             </div>
                         </li>
                         @empty
-                        <li class="list-group-item">No categories found</li>
+                        <li class="list-group-item">No tags found</li>
                         @endforelse
                     </ul>
                 </div>
