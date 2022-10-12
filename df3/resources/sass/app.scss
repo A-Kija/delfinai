@@ -281,3 +281,15 @@ h2 small {
         height: 400px;
     }
 }
+
+.all-tags {
+    margin: 0 10px;
+    border: 1px dotted skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    span {
+        padding: 5px;
+    }
+}
